@@ -1,0 +1,30 @@
+enum UserType {
+    ADMIN
+    NORMAL
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    userType: UserType!
+}
+
+type ListItem {
+    description: String!
+}
+
+type ShoppingList {
+    id: ID!
+    userId: ID!
+    listItems: [ListItem!]
+}
+
+type Query {
+    shoppingLists: [ShoppingList!]!
+    shoppingList(shoppingList: ShoppingList!): ShoppingList
+}
+
+type Mutation {
+    createShoppingList(listItems: [ListItem!]!): ShoppingList
+}
