@@ -18,9 +18,19 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "paths": {},
-  },
-  "include": [
-    "src/**/*"
-  ],
+    "paths": {
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@database/*": [
+        "./src/database/*"
+      ],
+      "@models/*": [
+        "./src/models/*"
+      ],
+      "@controllers/*": [
+        "./src/controllers/*"
+      ],
+    },
+  }
 }

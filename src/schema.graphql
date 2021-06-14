@@ -10,21 +10,22 @@ type User {
     userType: UserType!
 }
 
-type ListItem {
-    description: String!
-}
 
 type ShoppingList {
     id: ID!
     userId: ID!
-    listItems: [ListItem!]
+    items: [String!]
 }
+
 
 type Query {
     shoppingLists: [ShoppingList!]!
-    shoppingList(shoppingList: ShoppingList!): ShoppingList
+    shoppingList(id: ID!): ShoppingList,
+    user(id: ID!): User,
+    users: [User!]!,
 }
 
 type Mutation {
-    createShoppingList(listItems: [ListItem!]!): ShoppingList
+    createShoppingList(items: [String!]!): ShoppingList,
+    createUser(name: String!, email: String!, userType: UserType!)
 }
