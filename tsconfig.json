@@ -31,6 +31,9 @@
       "@controllers/*": [
         "./src/controllers/*"
       ],
+      "@types/*": [
+        "./src/@types/*"
+      ],
     },
   }
 }

@@ -1,10 +1,10 @@
-import { GraphQLServer } from "graphql-yoga"
+import { GraphQLServer } from 'graphql-yoga'
 import path from 'path'
-import resolvers from "./resolvers"
+import resolvers from './resolvers'
 
 const server = new GraphQLServer({
-    typeDefs: path.resolve(__dirname, 'schema.graphql'),
-    resolvers
+  typeDefs: path.resolve(__dirname, 'schema.graphql'),
+  resolvers
 })
 
 server.start({ port: 8080 })

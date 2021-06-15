@@ -5,29 +5,29 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
+        allowNull: false
       },
       shoppingListId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'shoppingLists', key: 'id' },
+        references: { model: 'shoppingLists', key: 'id' }
       },
       description: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       createdAt: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: false
       },
       updatedAt: {
         type: Sequelize.DATE,
-        allowNull: false,
-      },
-    });
+        allowNull: false
+      }
+    })
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('items');
-  },
-};
+    await queryInterface.dropTable('items')
+  }
+}

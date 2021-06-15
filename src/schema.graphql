@@ -1,15 +1,8 @@
-enum UserType {
-    ADMIN
-    NORMAL
-}
-
 type User {
     id: ID!
-    name: String!
     email: String!
-    userType: UserType!
+    password: String!
 }
-
 
 type ShoppingList {
     id: ID!
@@ -27,5 +20,7 @@ type Query {
 
 type Mutation {
     createShoppingList(items: [String!]!): ShoppingList,
-    createUser(name: String!, email: String!, userType: UserType!)
+    createUser(email: String!, password: String!): User,
+    updateUser(id: Int!, email: String!, password: String!): User,
+    deleteUser(id: Int!): User,
 }

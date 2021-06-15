@@ -5,25 +5,25 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
+        allowNull: false
       },
       userId: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
-        allowNull: false,
+        allowNull: false
       },
       createdAt: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: false
       },
       updatedAt: {
         type: Sequelize.DATE,
-        allowNull: false,
-      },
-    });
+        allowNull: false
+      }
+    })
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('shoppingLists');
-  },
-};
+    await queryInterface.dropTable('shoppingLists')
+  }
+}
