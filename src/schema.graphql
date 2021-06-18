@@ -14,12 +14,16 @@ type ShoppingList {
 type Query {
     shoppingLists: [ShoppingList!]!
     shoppingList(id: ID!): ShoppingList,
+
     user(id: ID!): User,
     users: [User!]!,
 }
 
 type Mutation {
-    createShoppingList(items: [String!]!): ShoppingList,
+    createShoppingList(userId: Int!, items: [String!]!): ShoppingList,
+    deleteShoppingList(id: Int!): ShoppingList,
+    updateShoppingList(id: Int!, userId: Int!, items: [String!]!): ShoppingList,
+    
     createUser(email: String!, password: String!): User,
     updateUser(id: Int!, email: String!, password: String!): User,
     deleteUser(id: Int!): User,

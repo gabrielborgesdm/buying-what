@@ -1,26 +1,22 @@
 import UserController, { UserInterface } from '@controllers/UserController'
+import ShoppintListController from '@controllers/ShoppingListController'
 
 const user = new UserController()
-
-const shoppingLists = [
-  {
-    id: 1, userId: 1, items: ['First item']
-  },
-  {
-    id: 2, userId: 1, items: ['First item', 'Another item']
-  }
-]
+const shoppingList = new ShoppintListController()
 
 export default {
   Query: {
-    shoppingLists: () => [],
-    // eslint-disable-next-line eqeqeq
-    shoppingList: (_: any, { id }) => shoppingLists.filter(list => list.id == id)[0],
     users: () => user.getAll(),
-    user: (_: any, { id }) => user.get(id)
+    user: (_: any, { id }) => user.get(id),
+
+    shoppingList: (_: any, { id }) => shoppingList.get(id),
+    shoppingLists: (_: any, { id }) => shoppingList.getAll()
   },
   Mutation: {
-    createShoppingList: () => shoppingLists[1],
+    createShoppingList: (_: any, { userId, items }) => shoppingList.store(userId, items),
+    deleteShoppingList: (_: any, { id }) => shoppingList.remove(id),
+    updateShoppingList: (_: any, { id, userId, items }) => shoppingList.update(id, { userId, items }),
+
     createUser: (_: any, userData: UserInterface) => user.store(userData),
     deleteUser: (_: any, { id }) => user.remove(id),
     updateUser: (_: any, { id, email, password }) => user.update(id, { email, password })
