@@ -1,43 +1,13 @@
-import UserModel from '@models/UserModel'
+import UserService, { UserInterface } from '@services/UserService'
 
-export interface UserInterface {
-  email: String,
-  password: String
-}
+const userService = new UserService()
 
 class UserController {
-  async getAll () {
-    const usersResponse = await UserModel.findAll()
-    return usersResponse
-  }
-
-  async get (id: number) {
-    return await UserModel.findOne({ where: { id } })
-  }
-
-  async remove (id: number) {
-    const userResponse = await this.get(id)
-    if (userResponse) {
-      await userResponse.destroy()
-    }
-    return userResponse
-  }
-
-  async store (user: UserInterface) {
-    const { email, password } = user
-    const userResponse = await UserModel.create({ email, password })
-    return userResponse
-  }
-
-  async update (id: number, updateInfo: UserInterface) {
-    const userFound = await this.get(id)
-    if (userFound) {
-      userFound.update(updateInfo)
-      userFound.save()
-    }
-
-    return userFound
-  }
+  getAll = async () => await userService.getAll()
+  get = async (id: number) => await userService.get(id)
+  remove = async (id: number) => await userService.remove(id)
+  store = async (user: UserInterface) => await userService.store(user)
+  update = async (id: number, updateInfo: UserInterface) => await userService.update(id, updateInfo)
 }
 
 export default UserController

@@ -17,6 +17,7 @@ module.exports = {
         '@database': './src/database',
         '@models': './src/models',
         '@controllers': './src/controllers',
+        '@services': './src/services',
         '@types': './src/@types'
       }
     }]
