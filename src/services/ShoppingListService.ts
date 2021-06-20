@@ -1,7 +1,6 @@
 import ShoppingListModel from '@models/ShoppingListModel'
 import ItemModel from '@models/ItemModel'
 import ItemService from '@services/ItemService'
-import UserService from '@services/UserService'
 
 export interface ShoppingListInterface {
   userId: number,
@@ -9,13 +8,16 @@ export interface ShoppingListInterface {
 }
 
 const itemService = new ItemService()
-const userService = new UserService()
 
 class ShoppingListService {
   async getAll () {
     const shoppingLists: any = await ShoppingListModel.findAll({ include: ItemModel })
     shoppingLists.map((shoppingList: any) => itemService.format(shoppingList))
     return shoppingLists
+  }
+
+  async countByUserId (userId: number) {
+    return await ShoppingListModel.count({ where: { userId }, include: ItemModel })
   }
 
   async get (id: number) {
@@ -34,8 +36,6 @@ class ShoppingListService {
   }
 
   async store (userId: number, items: Array<String>) {
-    const user = await userService.get(userId)
-    if (!user) return
     const shoppingList: any = await ShoppingListModel.create({ userId })
     if (!shoppingList) return
     shoppingList.items = await itemService.createMany(shoppingList.id, items)
@@ -44,8 +44,7 @@ class ShoppingListService {
 
   async update (id: number, updateInfo: ShoppingListInterface) {
     const shoppingListFound = await this.get(id)
-    const user = await userService.get(updateInfo.userId)
-    if (!shoppingListFound || !user) return
+    if (!shoppingListFound) return
     await itemService.remove(id)
     shoppingListFound.update({ userId: updateInfo.userId })
     shoppingListFound.save()
