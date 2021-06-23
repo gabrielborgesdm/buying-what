@@ -6,10 +6,10 @@ It's an API that was created in order to learn GraphQL and Sequelize in Node.JS 
 
 ## Screenshots
 #### Entity Relationship Diagram
-![Entity Relationship Diagram](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Entity Relationship Diagram](https://github.com/gabrielborgesdm/buying-what/blob/main/screenshots/entity_relationship_diagram.png)
 
 #### GraphQL Docs
-![GraphQL Docs](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![GraphQL Docs](https://github.com/gabrielborgesdm/buying-what/blob/main/screenshots/docs.png)
 
   
 ## Lessons Learned
