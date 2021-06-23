@@ -2,7 +2,7 @@ import ShoppingListService, { ShoppingListInterface } from '@services/ShoppingLi
 import UserService from '@services/UserService'
 import ItemService from '@services/ItemService'
 import { ApolloError } from 'apollo-server'
-import { NOT_FOUND, HAS_DEPENDENCIES } from '@config/APIConfig'
+import { NOT_FOUND } from '@config/APIConfig'
 
 const shoppingListService = new ShoppingListService()
 const userService = new UserService()
