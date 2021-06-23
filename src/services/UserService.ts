@@ -35,7 +35,6 @@ class UserService {
       userFound.update(updateInfo)
       userFound.save()
     }
-
     return userFound
   }
 }

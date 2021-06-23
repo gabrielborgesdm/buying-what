@@ -18,6 +18,7 @@ module.exports = {
         '@models': './src/models',
         '@controllers': './src/controllers',
         '@services': './src/services',
+        '@helpers': './src/helpers',
         '@types': './src/@types'
       }
     }]

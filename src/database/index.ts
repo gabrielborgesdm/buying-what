@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize';
-import dbConfig from '@config/database'
+import { Sequelize } from 'sequelize'
+import dbConfig from '@config/DatabaseConfig'
 
-export default new Sequelize(dbConfig);
+export default new Sequelize(dbConfig)

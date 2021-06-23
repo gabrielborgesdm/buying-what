@@ -1,12 +1,6 @@
 import ItemModel from '@models/ItemModel'
 
 class ItemService {
-  format (shoppingList: any) {
-    if (!shoppingList) return
-    const items = shoppingList.items.map((item: any) => item.description)
-    shoppingList.items = items
-  }
-
   async remove (shoppingListId: number) {
     const formattedItems = []
     const items: any = await ItemModel.findAll({ where: { shoppingListId } })
