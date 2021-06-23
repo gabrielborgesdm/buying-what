@@ -18,7 +18,7 @@ I started developing this project not only because I wanted to learn Sequelize a
 
 While developing the project, I got to the conclusion that pure MVC wasn’t exactly what I was looking for. Since I wanted reusable code, I would have a problem importing one Controller into another because of Circular Dependency.
 
-That’s when Model View Controller Service (M.V.C.S.), comes into play. With this architecture I can import Services inside of Controllers, having everything I need to make request validations. Also, with this architecture your code gets to be pretty clean and straightfoward.  
+That’s when Model View Controller Service (M.V.C.S.), comes into play. With this architecture I can import Services inside of Controllers, having everything I need to make request validations. Also, your code gets to be pretty clean and straightfoward.  
 ## Documentation
 
 [Documentation](https://documenter.getpostman.com/view/6190871/TzeajmTX)
